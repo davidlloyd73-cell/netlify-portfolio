@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>David Lloyd · Project Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  :root {
+    --bg-0: #07090f;
+    --bg-1: #0d1220;
+    --bg-2: #131a2e;
+    --text: #e8ecf5;
+    --muted: #9aa3b8;
+    --accent-a: #7c5cff;
+    --accent-b: #22d3ee;
+    --accent-c: #f472b6;
+    --card: rgba(255,255,255,0.04);
+    --card-hover: rgba(255,255,255,0.07);
+    --border: rgba(255,255,255,0.09);
+    --border-hover: rgba(255,255,255,0.18);
+  }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--text);
+    background: var(--bg-0);
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(900px 600px at 12% -5%, rgba(124,92,255,0.28), transparent 60%),
+      radial-gradient(800px 600px at 95% 10%, rgba(34,211,238,0.18), transparent 60%),
+      radial-gradient(700px 500px at 50% 110%, rgba(244,114,182,0.16), transparent 60%),
+      linear-gradient(180deg, var(--bg-0), var(--bg-1));
+    z-index: -1;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 28px 120px;
+  }
+  header.hero {
+    text-align: center;
+    margin-bottom: 72px;
+  }
+  .eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: rgba(255,255,255,0.02);
+    margin-bottom: 24px;
+  }
+  h1 {
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin: 0 0 18px;
+    background: linear-gradient(120deg, #ffffff 0%, #c9d1ff 45%, #7c5cff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .lede {
+    color: var(--muted);
+    font-size: clamp(1rem, 1.6vw, 1.15rem);
+    max-width: 620px;
+    margin: 0 auto;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 22px;
+  }
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 26px 26px 24px;
+    border-radius: 18px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: transform 0.35s cubic-bezier(.2,.7,.2,1), border-color 0.3s, background 0.3s, box-shadow 0.35s;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--g-a, var(--accent-a)) 0%, var(--g-b, var(--accent-b)) 100%);
+    opacity: 0;
+    transition: opacity 0.4s;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+  }
+  .card:hover {
+    transform: translateY(-6px);
+    background: var(--card-hover);
+    border-color: var(--border-hover);
+    box-shadow: 0 24px 60px -20px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04);
+  }
+  .card:hover::before { opacity: 0.14; }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 5px 10px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    align-self: flex-start;
+    margin-bottom: 18px;
+  }
+  .badge .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--g-a), var(--g-b));
+    box-shadow: 0 0 8px var(--g-a);
+  }
+  .card h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin: 0 0 10px;
+    letter-spacing: -0.01em;
+  }
+  .card p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin: 0 0 22px;
+    flex: 1;
+  }
+  .card .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+  }
+  .url {
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-family: 'SF Mono', Menlo, Consolas, monospace;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 200px;
+  }
+  .visit {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text);
+    background: linear-gradient(135deg, var(--g-a), var(--g-b));
+    padding: 8px 14px;
+    border-radius: 999px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    flex-shrink: 0;
+  }
+  .visit svg {
+    width: 14px; height: 14px;
+    transition: transform 0.25s;
+  }
+  .card:hover .visit svg { transform: translate(2px, -2px); }
+  .card:hover .visit {
+    box-shadow: 0 8px 24px -8px var(--g-a);
+  }
+  footer.foot {
+    margin-top: 80px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  footer.foot a { color: var(--text); text-decoration: none; }
+  footer.foot a:hover { text-decoration: underline; }
+
+  @media (max-width: 540px) {
+    .container { padding: 56px 18px 80px; }
+    .grid { gap: 16px; }
+    .card { padding: 22px; }
+    .url { max-width: 140px; }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <header class="hero">
+      <span class="eyebrow">Live Projects · Netlify</span>
+      <h1>Things we've built</h1>
+      <p class="lede">A working collection of web apps spanning clinical tools, family utilities, and creative experiments — each one shipped and live.</p>
+    </header>
+
+    <main class="grid">
+
+      <a class="card" href="https://post-emis-mockup.netlify.app" target="_blank" rel="noopener" style="--g-a:#7c5cff; --g-b:#22d3ee;">
+        <span class="badge"><span class="dot"></span>Clinical · Concept</span>
+        <h2>Post-EMIS Mockup</h2>
+        <p>Animated walkthrough of a post-EMIS clinical system — clinically governed shared records combined with on-premise AI inference, so patient data never leaves the practice.</p>
+        <div class="footer">
+          <span class="url">post-emis-mockup.netlify.app</span>
+          <span class="visit">Open <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+        </div>
+      </a>
+
+      <a class="card" href="https://ridgewayai.netlify.app" target="_blank" rel="noopener" style="--g-a:#22d3ee; --g-b:#34d399;">
+        <span class="badge"><span class="dot"></span>Clinical · AI Tools</span>
+        <h2>Ridgeway AI Tools</h2>
+        <p>Two GP productivity apps: <strong>RefGP</strong> turns consultation notes into professional referral letters, and <strong>RateConsult</strong> grades consultations against RCGP quality standards.</p>
+        <div class="footer">
+          <span class="url">ridgewayai.netlify.app</span>
+          <span class="visit">Open <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+        </div>
+      </a>
+
+      <a class="card" href="https://diagnostic-teammate.netlify.app" target="_blank" rel="noopener" style="--g-a:#f472b6; --g-b:#7c5cff;">
+        <span class="badge"><span class="dot"></span>Clinical · Decision Support</span>
+        <h2>Diagnostic Teammate</h2>
+        <p>Structured clinician–AI collaboration: both parties form independent diagnostic assessments, then reconcile. Explicit attribution of who suggested what, plus patient-friendly summaries.</p>
+        <div class="footer">
+          <span class="url">diagnostic-teammate.netlify.app</span>
+          <span class="visit">Open <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+        </div>
+      </a>
+
+      <a class="card" href="https://ridgewayhealthwalkpodcast.netlify.app" target="_blank" rel="noopener" style="--g-a:#34d399; --g-b:#fbbf24;">
+        <span class="badge"><span class="dot"></span>Health · Podcast</span>
+        <h2>Ridgeway Health Walk Podcast</h2>
+        <p>A GP-guided walking podcast for clear health education, steady movement, and a bit of company on the path. Listen while you walk at conversational pace.</p>
+        <div class="footer">
+          <span class="url">ridgewayhealthwalkpodcast.netlify.app</span>
+          <span class="visit">Open <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+        </div>
+      </a>
+
+      <a class="card" href="https://dlinvoicegenerator.netlify.app" target="_blank" rel="noopener" style="--g-a:#fbbf24; --g-b:#f472b6;">
+        <span class="badge"><span class="dot"></span>Business · Tool</span>
+        <h2>DL Invoice Generator</h2>
+        <p>Create professional invoices fast — type or speak the details, customise branding and line items, then print, save as PDF, or email straight from the page.</p>
+        <div class="footer">
+          <span class="url">dlinvoicegenerator.netlify.app</span>
+          <span class="visit">Open <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+        </div>
+      </a>
+
+      <a class="card" href="https://family-corkboard.netlify.app" target="_blank" rel="noopener" style="--g-a:#f472b6; --g-b:#22d3ee;">
+        <span class="badge"><span class="dot"></span>Family · Utility</span>
+        <h2>Family Corkboard</h2>
+        <p>Passcode-protected shared board for the household — pin photos, videos, voice notes, and a weekly family diary that tracks who's doing what, when.</p>
+        <div class="footer">
+          <span class="url">family-corkboard.netlify.app</span>
+          <span class="visit">Open <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+        </div>
+      </a>
+
+    </main>
+
+    <footer class="foot">
+      <p>Built by David Lloyd with Claude · all sites hosted on <a href="https://netlify.com" target="_blank" rel="noopener">Netlify</a></p>
+    </footer>
+  </div>
+</body>
+</html>
