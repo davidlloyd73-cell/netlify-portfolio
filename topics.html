@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>David Lloyd · Research Topics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  :root {
+    --bg-0: #07090f;
+    --bg-1: #0d1220;
+    --bg-2: #131a2e;
+    --text: #e8ecf5;
+    --muted: #9aa3b8;
+    --accent-a: #7c5cff;
+    --accent-b: #22d3ee;
+    --accent-c: #f472b6;
+    --card: rgba(255,255,255,0.04);
+    --card-hover: rgba(255,255,255,0.07);
+    --border: rgba(255,255,255,0.09);
+    --border-hover: rgba(255,255,255,0.18);
+  }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--text);
+    background: var(--bg-0);
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(900px 600px at 88% -5%, rgba(34,211,238,0.22), transparent 60%),
+      radial-gradient(800px 600px at 5% 10%, rgba(124,92,255,0.24), transparent 60%),
+      radial-gradient(700px 500px at 50% 110%, rgba(52,211,153,0.14), transparent 60%),
+      linear-gradient(180deg, var(--bg-0), var(--bg-1));
+    z-index: -1;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 28px 120px;
+  }
+  nav.topnav {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 56px;
+    padding: 6px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  nav.topnav a {
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s, background 0.2s;
+  }
+  nav.topnav a:hover { color: var(--text); }
+  nav.topnav a.active {
+    background: linear-gradient(135deg, var(--accent-a), var(--accent-b));
+    color: #fff;
+  }
+  header.hero {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+  .eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: rgba(255,255,255,0.02);
+    margin-bottom: 24px;
+  }
+  h1 {
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin: 0 0 18px;
+    background: linear-gradient(120deg, #ffffff 0%, #c9d1ff 45%, #22d3ee 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .lede {
+    color: var(--muted);
+    font-size: clamp(1rem, 1.6vw, 1.15rem);
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 22px;
+  }
+  .topic {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: 18px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: transform 0.35s cubic-bezier(.2,.7,.2,1), border-color 0.3s, background 0.3s, box-shadow 0.35s;
+    overflow: hidden;
+  }
+  .topic:hover {
+    transform: translateY(-4px);
+    background: var(--card-hover);
+    border-color: var(--border-hover);
+    box-shadow: 0 24px 60px -20px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04);
+  }
+  .thumb {
+    aspect-ratio: 16 / 9;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    text-align: center;
+    background: linear-gradient(135deg, var(--g-a), var(--g-b));
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .thumb::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(255,255,255,0.25), transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(0,0,0,0.18), transparent 50%);
+    pointer-events: none;
+  }
+  .thumb::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
+    background-size: 24px 24px;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+  }
+  .thumb h2 {
+    position: relative;
+    z-index: 1;
+    font-size: clamp(1.4rem, 2.6vw, 1.85rem);
+    font-weight: 800;
+    margin: 0;
+    color: #fff;
+    letter-spacing: -0.02em;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.35);
+    line-height: 1.15;
+  }
+  .body {
+    padding: 22px 26px 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .body > p {
+    color: var(--text);
+    font-size: 0.95rem;
+    margin: 0 0 22px;
+    opacity: 0.92;
+  }
+  .body h3 {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 12px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+  }
+  .notebooks {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .notebooks a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  }
+  .notebooks a:hover {
+    background: rgba(255,255,255,0.07);
+    border-color: var(--border-hover);
+    transform: translateX(2px);
+  }
+  .notebooks .title {
+    flex: 1;
+    line-height: 1.35;
+  }
+  .notebooks .meta {
+    font-size: 0.72rem;
+    color: var(--muted);
+    font-family: 'SF Mono', Menlo, Consolas, monospace;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .shared-pill {
+    display: inline-block;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #34d399;
+    background: rgba(52,211,153,0.12);
+    border: 1px solid rgba(52,211,153,0.3);
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 6px;
+    text-transform: uppercase;
+    vertical-align: middle;
+  }
+  .drive-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: auto;
+    padding: 9px 14px;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text);
+    background: linear-gradient(135deg, var(--g-a), var(--g-b));
+    text-decoration: none;
+    align-self: flex-start;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .drive-link svg {
+    width: 13px; height: 13px;
+    transition: transform 0.25s;
+  }
+  .topic:hover .drive-link svg { transform: translate(2px, -2px); }
+  .topic:hover .drive-link {
+    box-shadow: 0 8px 24px -8px var(--g-a);
+  }
+  footer.foot {
+    margin-top: 80px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  footer.foot a { color: var(--text); text-decoration: none; }
+  footer.foot a:hover { text-decoration: underline; }
+  .note {
+    margin: 0 auto 40px;
+    max-width: 720px;
+    padding: 14px 18px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.03);
+    border: 1px dashed var(--border);
+    color: var(--muted);
+    font-size: 0.82rem;
+    text-align: center;
+  }
+
+  @media (max-width: 540px) {
+    .container { padding: 28px 18px 80px; }
+    .grid { gap: 16px; }
+    .body { padding: 20px 22px 22px; }
+    nav.topnav { margin-bottom: 40px; }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <nav class="topnav">
+      <a href="index.html">Apps</a>
+      <a href="topics.html" class="active">Research Topics</a>
+    </nav>
+
+    <header class="hero">
+      <span class="eyebrow">Active Research</span>
+      <h1>Topics we're digging into</h1>
+      <p class="lede">Five live work-streams in Google Drive, each backed by a NotebookLM knowledge base. Drive holds the working documents; the notebooks hold the source library Claude and Gemini can search and reason over.</p>
+    </header>
+
+    <p class="note">NotebookLM links open in Google NotebookLM and require sign-in to the owning Google account. Shared notebooks are tagged <span class="shared-pill">Shared</span>.</p>
+
+    <main class="grid">
+
+      <article class="topic" style="--g-a:#7c5cff; --g-b:#22d3ee;">
+        <div class="thumb"><h2>Triadic Care</h2></div>
+        <div class="body">
+          <p>Governing the third party in the consulting room — a clinical, regulatory and ethical framework for generative AI working alongside clinician and patient. Two large knowledge bases distil 100+ policy, evidence and consent sources.</p>
+          <h3>NotebookLM knowledge bases</h3>
+          <ul class="notebooks">
+            <li><a href="https://notebooklm.google.com/notebook/5f478b38-1d27-4052-8e51-b2ccfec0a6be" target="_blank" rel="noopener"><span class="title">Triadic Care: Governing Generative AI in Clinical Consultations<span class="shared-pill">Shared</span></span><span class="meta">81 sources</span></a></li>
+            <li><a href="https://notebooklm.google.com/notebook/17b39af0-3eed-4473-ada6-4b5819ed85a1" target="_blank" rel="noopener"><span class="title">Triadic Care: Governance for AI in Medicine<span class="shared-pill">Shared</span></span><span class="meta">26 sources</span></a></li>
+            <li><a href="https://notebooklm.google.com/notebook/7a7b4023-d7bf-46e1-b597-42a6f0ee3ac2" target="_blank" rel="noopener"><span class="title">AI-Integrated Clinical Consultation and Patient Summary Record</span><span class="meta">5 sources</span></a></li>
+          </ul>
+          <a class="drive-link" href="https://drive.google.com/drive/project/14KMvVEKVqXW18TMJvM8DBKf5tAhNKjH_" target="_blank" rel="noopener">Open in Drive <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        </div>
+      </article>
+
+      <article class="topic" style="--g-a:#ef4444; --g-b:#f472b6;">
+        <div class="thumb"><h2>Palliative Care</h2></div>
+        <div class="body">
+          <p>Building a clinically-governed end-of-life pathway at the Ridgeway Surgery. Combines national guidance, local protocols and case-based learning so patients with life-limiting illness get the right conversations and the right care at the right time.</p>
+          <h3>NotebookLM knowledge bases</h3>
+          <ul class="notebooks">
+            <li><a href="https://notebooklm.google.com/notebook/f204baf5-9dd0-4bb4-a70d-667ddb6f5938" target="_blank" rel="noopener"><span class="title">The Ridgeway Surgery Palliative Care Clinical Pathway<span class="shared-pill">Shared</span></span><span class="meta">43 sources</span></a></li>
+            <li><a href="https://notebooklm.google.com/notebook/0a461609-2fc8-4c59-aab9-63a13cefd2f9" target="_blank" rel="noopener"><span class="title">A Good Death at the Ridgeway Surgery</span><span class="meta">27 sources</span></a></li>
+            <li><a href="https://notebooklm.google.com/notebook/75b6f479-686c-409f-801e-aaf31ae71044" target="_blank" rel="noopener"><span class="title">A Good Ridgeway Death<span class="shared-pill">Shared</span></span><span class="meta">11 sources</span></a></li>
+          </ul>
+          <a class="drive-link" href="https://drive.google.com/drive/project/1y9P215Exow0fE5wbzwrE4VxWRwhbvm3B" target="_blank" rel="noopener">Open in Drive <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        </div>
+      </article>
+
+      <article class="topic" style="--g-a:#22d3ee; --g-b:#7c5cff;">
+        <div class="thumb"><h2>Schizophrenia in the&nbsp;Community</h2></div>
+        <div class="body">
+          <p>Modernising community management of schizophrenia in primary care — proactive use of long-acting injectables, relapse prevention, physical-health co-management, and narrowing the mortality gap for people with severe mental illness.</p>
+          <h3>NotebookLM knowledge bases</h3>
+          <ul class="notebooks">
+            <li><a href="https://notebooklm.google.com/notebook/02297546-e11f-409a-b24a-fe5324fc8c05" target="_blank" rel="noopener"><span class="title">Schizophrenia</span><span class="meta">125 sources</span></a></li>
+          </ul>
+          <a class="drive-link" href="https://drive.google.com/drive/project/14hbeqRQ6l-DlIts1wA6ki5QrZSdEDjJB" target="_blank" rel="noopener">Open in Drive <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        </div>
+      </article>
+
+      <article class="topic" style="--g-a:#f472b6; --g-b:#fbbf24;">
+        <div class="thumb"><h2>Post-EMIS</h2></div>
+        <div class="body">
+          <p>A position paper and prototype for a post-EMIS NHS clinical system — cooperatively-owned shared records combined with on-premise AI inference, so patient data never leaves the practice and clinicians stay in control of the technology stack.</p>
+          <h3>NotebookLM knowledge bases</h3>
+          <ul class="notebooks">
+            <li><a href="https://notebooklm.google.com/notebook/01e4dda9-3d18-47c8-b7a2-82d99716e2cf" target="_blank" rel="noopener"><span class="title">The Medicus Acquisition and the Future of British Primary Care</span><span class="meta">49 sources</span></a></li>
+            <li><a href="https://notebooklm.google.com/notebook/d86007ae-2fb8-493e-8ee1-005fce775c8a" target="_blank" rel="noopener"><span class="title">The 2026 NHS Primary Care AI Roadmap</span><span class="meta">34 sources</span></a></li>
+            <li><a href="https://notebooklm.google.com/notebook/2e80a316-d890-4006-992c-daa1143c3337" target="_blank" rel="noopener"><span class="title">Critical Appraisal of LLM Performance in Medical Reasoning</span><span class="meta">5 sources</span></a></li>
+            <li><a href="https://notebooklm.google.com/notebook/16da1faf-42db-4235-b31c-046da29a097a" target="_blank" rel="noopener"><span class="title">Clinical Diagnostic AI Collaboration Protocol</span><span class="meta">1 source</span></a></li>
+          </ul>
+          <a class="drive-link" href="https://drive.google.com/drive/project/1D7XTOxuZ8FoTAb_76XLo2KQdHAGDa-gF" target="_blank" rel="noopener">Open in Drive <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        </div>
+      </article>
+
+      <article class="topic" style="--g-a:#34d399; --g-b:#22d3ee;">
+        <div class="thumb"><h2>SleepWell</h2></div>
+        <div class="body">
+          <p>A GP-led sleep service — an evidence base for assessing and treating insomnia, sleep apnoea, restless legs and circadian-rhythm disorders in primary care without defaulting to long-term hypnotics.</p>
+          <h3>NotebookLM knowledge bases</h3>
+          <ul class="notebooks">
+            <li><a href="https://notebooklm.google.com/notebook/b78be1b8-7553-4b20-8ea4-ea29d8882415" target="_blank" rel="noopener"><span class="title">SleepWell<span class="shared-pill">Shared</span></span><span class="meta">68 sources</span></a></li>
+          </ul>
+          <a class="drive-link" href="https://drive.google.com/drive/project/1fdcdKZsuPEGBt4NpiofS_ti49M26gCsL" target="_blank" rel="noopener">Open in Drive <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        </div>
+      </article>
+
+    </main>
+
+    <footer class="foot">
+      <p>Live research from <a href="https://drive.google.com" target="_blank" rel="noopener">Google Drive</a> &amp; <a href="https://notebooklm.google.com" target="_blank" rel="noopener">NotebookLM</a> · curated by David Lloyd</p>
+    </footer>
+  </div>
+</body>
+</html>

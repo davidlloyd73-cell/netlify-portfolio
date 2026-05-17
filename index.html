@@ -47,11 +47,11 @@
   .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 80px 28px 120px;
+    padding: 40px 28px 120px;
   }
   header.hero {
     text-align: center;
-    margin-bottom: 72px;
+    margin-bottom: 56px;
   }
   .eyebrow {
     display: inline-block;
@@ -211,6 +211,35 @@
   }
   footer.foot a { color: var(--text); text-decoration: none; }
   footer.foot a:hover { text-decoration: underline; }
+  nav.topnav {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 40px;
+    padding: 6px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  nav.topnav a {
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s, background 0.2s;
+  }
+  nav.topnav a:hover { color: var(--text); }
+  nav.topnav a.active {
+    background: linear-gradient(135deg, var(--accent-a), var(--accent-b));
+    color: #fff;
+  }
 
   @media (max-width: 540px) {
     .container { padding: 56px 18px 80px; }
@@ -223,6 +252,10 @@
 </head>
 <body>
   <div class="container">
+    <nav class="topnav">
+      <a href="index.html" class="active">Apps</a>
+      <a href="topics.html">Research Topics</a>
+    </nav>
     <header class="hero">
       <span class="eyebrow">Live Projects</span>
       <h1>Things we've built</h1>
