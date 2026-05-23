@@ -21,19 +21,32 @@ Every app links back to the portfolio (top-left pill) when opened from there. If
 | **Family Corkboard** | Passcode-protected family board for photos, notes, weekly diary. |
 | **We Take Blood** | Preview of a community phlebotomy service (private, password-gated). |
 
-## Adding a new app
+## Adding to the site
 
-From inside this repo, run:
+Two helper scripts live in this repo. Both are interactive (just run them and
+answer the questions), commit for you, and offer to push so Netlify redeploys.
+
+**Add an app to the Apps page:**
 
 ```bash
 python3 add-app.py
 ```
 
-It asks for the app's name, live URL, description, category, and what it's
-built with — then screenshots the app, adds a card here + a row above,
-commits, and (with your OK) pushes so Netlify redeploys. Finally it prints
-the exact "← All projects" back-button snippet to paste into the new app so
-it links home when opened from the portfolio. Nothing is saved if you say no.
+Asks for the app's name, live URL, description, category, and what it's built
+with — then screenshots the app, adds a card to `index.html` + a row above,
+commits, optionally pushes, and prints the exact "← All projects" back-button
+snippet to paste into the new app so it links home when opened from here.
+
+**Add a NotebookLM (or a new topic) to the Research Topics page:**
+
+```bash
+python3 add-notebook.py
+```
+
+Either adds a NotebookLM under an existing topic (you pick from the list; it's
+slotted in by source count to match the layout), or creates a whole new topic
+(name, description, Drive URL, and an optional first notebook). Commits and
+offers to push.
 
 ## How it's made
 
