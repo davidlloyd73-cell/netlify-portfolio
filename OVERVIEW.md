@@ -14,6 +14,7 @@ Every app links back to the portfolio (top-left pill) when opened from there. If
 | **Ridgeway AI Tools** | RefGP (notes → referral letter) and RateConsult (RCGP-style consultation grading). |
 | **Diagnostic Teammate** | Clinician and AI form independent diagnoses, then reconcile, with patient-friendly summary. |
 | **GP Population Simulator** | Models a 10,000-patient practice — change demographics and interventions, see the impact on mortality and equity. |
+| **GP Surgery Simulator** | Discrete-event model of a practice's appointment book over a year — set staffing, triage model and AI adoption, see the continuity-vs-access trade-off. |
 | **Ridgeway Health Walk Podcast** | GP-guided walking podcast for health education at conversational pace. |
 | **Bridge Four** | Online bridge against Claude-powered AI partner and opponents. |
 | **DL Invoice Generator** | Voice- or text-input invoice creator with PDF export. |
