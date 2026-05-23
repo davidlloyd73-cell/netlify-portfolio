@@ -21,6 +21,20 @@ Every app links back to the portfolio (top-left pill) when opened from there. If
 | **Family Corkboard** | Passcode-protected family board for photos, notes, weekly diary. |
 | **We Take Blood** | Preview of a community phlebotomy service (private, password-gated). |
 
+## Adding a new app
+
+From inside this repo, run:
+
+```bash
+python3 add-app.py
+```
+
+It asks for the app's name, live URL, description, category, and what it's
+built with — then screenshots the app, adds a card here + a row above,
+commits, and (with your OK) pushes so Netlify redeploys. Finally it prints
+the exact "← All projects" back-button snippet to paste into the new app so
+it links home when opened from the portfolio. Nothing is saved if you say no.
+
 ## How it's made
 
 - Every app lives in its own GitHub repo under `davidlloyd73-cell`.
