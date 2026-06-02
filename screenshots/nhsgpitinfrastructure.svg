@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Inter,sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fdfcfa"/><stop offset="1" stop-color="#f6f3ee"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="800" fill="url(#bg)"/>
+
+  <!-- ── header bar ── -->
+  <rect width="1280" height="74" fill="#efe9f5"/>
+  <rect x="30" y="22" width="30" height="30" rx="8" fill="#7b3fb8"/>
+  <text x="45" y="44" font-size="18" font-weight="700" font-style="italic" fill="#fff" text-anchor="middle">v</text>
+  <text x="76" y="34" font-size="21" font-weight="700" fill="#222">Ridgeway AI Infrastructure</text>
+  <text x="76" y="55" font-size="13" fill="#6a47a0">A post-EMIS reference architecture for one NHS GP practice · after “After EMIS” v3.1</text>
+  <!-- nav pills -->
+  <rect x="930" y="20" width="74" height="32" rx="16" fill="#7b3fb8"/>
+  <text x="967" y="41" font-size="14" fill="#fff" text-anchor="middle">Map</text>
+  <rect x="1012" y="20" width="118" height="32" rx="16" fill="none" stroke="#d9c9ee"/>
+  <text x="1071" y="41" font-size="14" fill="#5a3a83" text-anchor="middle">Consultation</text>
+  <rect x="1138" y="20" width="100" height="32" rx="16" fill="none" stroke="#d9c9ee"/>
+  <text x="1188" y="41" font-size="14" fill="#5a3a83" text-anchor="middle">Assurance</text>
+
+  <!-- ── classification strip ── -->
+  <rect y="74" width="1280" height="40" fill="#1d2e26"/>
+  <text x="30" y="100" font-size="13" font-weight="700" letter-spacing="1" fill="#fff" font-family="ui-monospace,Menlo,monospace">DATA CLASSIFICATION</text>
+  <rect x="248" y="88" width="13" height="13" rx="3" fill="#e08a4a"/>
+  <text x="268" y="100" font-size="13" fill="#cfe0d6" font-family="ui-monospace,Menlo,monospace">identifiable · on-premise</text>
+  <rect x="520" y="88" width="13" height="13" rx="3" fill="#5fb88a"/>
+  <text x="540" y="100" font-size="13" fill="#cfe0d6" font-family="ui-monospace,Menlo,monospace">synthetic / public · cloud</text>
+  <rect x="800" y="88" width="13" height="13" rx="3" fill="#a47ad8"/>
+  <text x="820" y="100" font-size="13" fill="#cfe0d6" font-family="ui-monospace,Menlo,monospace">patient-governed record</text>
+  <text x="1250" y="100" font-size="12" fill="#7fae95" text-anchor="end" font-family="ui-monospace,Menlo,monospace">boundary diode enforced ↓</text>
+
+  <!-- ── layer: intelligence feeds ── -->
+  <g>
+    <rect x="30" y="138" width="1220" height="118" rx="14" fill="#f4f7fb" stroke="#d9e6f0"/>
+    <rect x="48" y="156" width="158" height="22" rx="11" fill="#387aa3"/>
+    <text x="127" y="171" font-size="11" font-weight="700" letter-spacing=".6" fill="#fff" text-anchor="middle">INTELLIGENCE FEEDS</text>
+    <text x="48" y="206" font-size="18" font-weight="700" fill="#1f2c38">Horizon scanning &amp; knowledge base</text>
+    <text x="48" y="230" font-size="13" fill="#5e7384">Morning Rush · NotebookLM (186) · NHS AI Roadmap · population &amp; surgery simulators — never touches patient data</text>
+  </g>
+  <text x="640" y="278" font-size="13" fill="#9aa7b2" text-anchor="middle">↓ informs clinical &amp; governance design</text>
+
+  <!-- ── layer: substrate / vault ── -->
+  <g>
+    <rect x="30" y="292" width="1220" height="118" rx="14" fill="#f6f2fb" stroke="#e2d6ee"/>
+    <rect x="48" y="310" width="110" height="22" rx="11" fill="#7b3fb8"/>
+    <text x="103" y="325" font-size="11" font-weight="700" letter-spacing=".6" fill="#fff" text-anchor="middle">SUBSTRATE</text>
+    <rect x="1086" y="310" width="148" height="22" rx="11" fill="#efe4fa"/>
+    <text x="1160" y="325" font-size="11" font-weight="600" fill="#6a35a6" text-anchor="middle" font-family="ui-monospace,Menlo,monospace">patient rights-holder</text>
+    <text x="48" y="360" font-size="18" font-weight="700" fill="#2a1d3a">Clinically-governed shared record (patient vault)</text>
+    <text x="48" y="384" font-size="13" fill="#6e5a85">Patient is primary rights-holder · clinical systems hold scoped, time-limited access · custodian: NHS Digital Identity Trust</text>
+  </g>
+  <text x="640" y="432" font-size="13" fill="#a99cba" text-anchor="middle">↓ scoped access for an episode of care</text>
+
+  <!-- ── layer: on-premise local inference ── -->
+  <g>
+    <rect x="30" y="446" width="1220" height="124" rx="14" fill="#f1f8f3" stroke="#cfe4d6"/>
+    <rect x="48" y="464" width="112" height="22" rx="11" fill="#3a8a6a"/>
+    <text x="104" y="479" font-size="11" font-weight="700" letter-spacing=".6" fill="#fff" text-anchor="middle">ON-PREMISE</text>
+    <rect x="1064" y="464" width="170" height="22" rx="11" fill="#fbe6d3"/>
+    <text x="1149" y="479" font-size="11" font-weight="600" fill="#9a521b" text-anchor="middle" font-family="ui-monospace,Menlo,monospace">sees identifiable data</text>
+    <text x="48" y="514" font-size="18" font-weight="700" fill="#1f3b2c">Local clinical inference &amp; workflow</text>
+    <text x="48" y="538" font-size="13" fill="#4f6c5c">Mac mini M4 · Qwen 2.5 32B (hardware on order) · Tortus scribe in daily use · refletter · Patient-Briefing</text>
+    <text x="48" y="558" font-size="12" fill="#7d9588">by design, identifiable inference never leaves the practice perimeter</text>
+  </g>
+
+  <!-- ── boundary diode bar ── -->
+  <rect x="30" y="588" width="1220" height="58" rx="12" fill="#1d2e26"/>
+  <rect x="48" y="606" width="118" height="22" rx="11" fill="#e08a4a"/>
+  <text x="107" y="621" font-size="11" font-weight="700" letter-spacing=".6" fill="#fff" text-anchor="middle">BOUNDARY DIODE</text>
+  <text x="182" y="623" font-size="14" fill="#cfe0d6">outbound: synthetic outputs · structured metrics · model hashes only — no patient material crosses</text>
+
+  <!-- ── cloud assurance hint ── -->
+  <g opacity="0.96">
+    <rect x="30" y="664" width="600" height="104" rx="14" fill="#f8f5fc" stroke="#e2d6ee"/>
+    <rect x="48" y="682" width="70" height="22" rx="11" fill="#6a35a6"/>
+    <text x="83" y="697" font-size="11" font-weight="700" letter-spacing=".6" fill="#fff" text-anchor="middle">CLOUD</text>
+    <text x="48" y="730" font-size="17" font-weight="700" fill="#3a2150">Cloud assurance harness</text>
+    <text x="48" y="752" font-size="12.5" fill="#6e5a85">multi-grader benchmarking on synthetic + public material — never sees patient data</text>
+
+    <rect x="650" y="664" width="600" height="104" rx="14" fill="#fff" stroke="#e7e4dc"/>
+    <text x="672" y="694" font-size="12" font-weight="700" letter-spacing=".5" fill="#7a7a7a">GOVERNANCE WRAP (ALL LAYERS)</text>
+    <text x="672" y="718" font-size="12.5" fill="#444">DCB0129/0160 · DPIA · DSPT · named clinical safety officer</text>
+    <text x="672" y="740" font-size="12.5" fill="#444">immutable audit · triadic-care attribution · prompt-change control</text>
+  </g>
+</svg>
