@@ -47,9 +47,9 @@
     <rect x="48" y="310" width="110" height="22" rx="11" fill="#7b3fb8"/>
     <text x="103" y="325" font-size="11" font-weight="700" letter-spacing=".6" fill="#fff" text-anchor="middle">SUBSTRATE</text>
     <rect x="1086" y="310" width="148" height="22" rx="11" fill="#efe4fa"/>
-    <text x="1160" y="325" font-size="11" font-weight="600" fill="#6a35a6" text-anchor="middle" font-family="ui-monospace,Menlo,monospace">patient rights-holder</text>
+    <text x="1160" y="325" font-size="11" font-weight="600" fill="#6a35a6" text-anchor="middle" font-family="ui-monospace,Menlo,monospace">patient-centred</text>
     <text x="48" y="360" font-size="18" font-weight="700" fill="#2a1d3a">Clinically-governed shared record (patient vault)</text>
-    <text x="48" y="384" font-size="13" fill="#6e5a85">Patient is primary rights-holder · clinical systems hold scoped, time-limited access · custodian: NHS Digital Identity Trust</text>
+    <text x="48" y="384" font-size="13" fill="#6e5a85">Patient-centred record · enforceable patient access rights · care providers retain statutory duties · custodian (proposed): NHS Digital Identity Trust</text>
   </g>
   <text x="640" y="432" font-size="13" fill="#a99cba" text-anchor="middle">↓ scoped access for an episode of care</text>
 
