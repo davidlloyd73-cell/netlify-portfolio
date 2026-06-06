@@ -3,11 +3,13 @@
 The site that lists David's apps and research, live at
 **[things-we-have-built.netlify.app](https://things-we-have-built.netlify.app)**.
 
-It has two pages:
+It has three pages:
 
 - **Apps** (`index.html`) — a card per web app
 - **Research Topics** (`topics.html`) — a card per topic, each listing its
   NotebookLM knowledge bases
+- **Tools & MCPs** (`tools.html`) — a card per tool / MCP server (e.g. the
+  uk-evidence MCP); gradient/icon cards, no live URL needed
 
 Pushing to `main` auto-deploys via Netlify (~1 minute). You don't touch
 Netlify — just push and it rebuilds.
@@ -26,6 +28,7 @@ cd ~/netlify-portfolio
 | --- | --- |
 | A **web app** (to the Apps page) | `python3 add-app.py` |
 | A **NotebookLM or research topic** (to the Topics page) | `python3 add-notebook.py` |
+| A **tool or MCP server** (to the Tools & MCPs page) | `python3 add-mcp.py` |
 
 Both scripts ask you a few questions, do everything, and offer to push at the
 end. If you say yes to the push, the site updates itself a minute later. If
@@ -125,8 +128,10 @@ through silently. If it ever asks for a password, paste your GitHub
 | --- | --- |
 | `index.html` | The Apps page |
 | `topics.html` | The Research Topics page |
+| `tools.html` | The Tools & MCPs page |
 | `add-app.py` | Tool to add an app card |
 | `add-notebook.py` | Tool to add a NotebookLM / topic |
+| `add-mcp.py` | Tool to add a tool / MCP card |
 | `screenshots/` | App thumbnails (800×500 JPGs) |
 | `OVERVIEW.md` | Plain-language list of everything on the site |
 | `README.md` | This file |

@@ -21,6 +21,12 @@ Every app links back to the portfolio (top-left pill) when opened from there. If
 | **Family Corkboard** | Passcode-protected family board for photos, notes, weekly diary. |
 | **We Take Blood** | Preview of a community phlebotomy service (private, password-gated). |
 
+## Tools & MCPs
+
+| Tool | What it does |
+|---|---|
+| **uk-evidence MCP** | A Model Context Protocol server giving Claude live, point-of-care access to UK clinical evidence — NICE guidance and quality standards, NICE CKS summaries, MHRA drug-safety articles, and PubMed. So Claude answers from the current guideline, not its training data. |
+
 ## Adding to the site
 
 Two helper scripts live in this repo. Both are interactive (just run them and
