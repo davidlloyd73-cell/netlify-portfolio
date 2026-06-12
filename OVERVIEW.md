@@ -53,6 +53,7 @@ Either adds a NotebookLM under an existing topic (you pick from the list; it's
 slotted in by source count to match the layout), or creates a whole new topic
 (name, description, Drive URL, and an optional first notebook). Commits and
 offers to push.
+| **David's AI Daily Brief** | Self-updating daily distillation of The AI Daily Brief podcast — readable page, three-minute spoken edition with podcast feed, an opposing-source synthesis from Ed Zitron's Better Offline, and a GP's Corner for the NHS. Rebuilds itself every morning at 7. |
 
 ## How it's made
 
