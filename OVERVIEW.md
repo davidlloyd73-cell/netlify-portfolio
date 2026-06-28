@@ -54,6 +54,7 @@ slotted in by source count to match the layout), or creates a whole new topic
 (name, description, Drive URL, and an optional first notebook). Commits and
 offers to push.
 | **David's AI Daily Brief** | Self-updating daily distillation of The AI Daily Brief podcast — readable page, three-minute spoken edition with podcast feed, an opposing-source synthesis from Ed Zitron's Better Offline, and a GP's Corner for the NHS. Rebuilds itself every morning at 7. |
+| **Signpost Live** | AI-triaged, multi-channel NHS e-RS referral decision-support demo — suggests & ranks specialties; the GP decides. Mock data. |
 
 ## How it's made
 
