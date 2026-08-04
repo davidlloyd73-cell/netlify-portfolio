@@ -10,7 +10,7 @@ Every app links back to the portfolio (top-left pill) when opened from there. If
 
 | Project | What it does |
 |---|---|
-| **SleepWell Harrow** | GP-led community sleep apnoea diagnosis *and* treatment pathway (AcuPebble home study → CPAP → telemonitoring) — the ten-chapter pitch to the West and North London ICB. Live, password-gated (Harrow2026). |
+| **SleepWell Harrow** | GP-led community sleep apnoea diagnosis *and* treatment pathway (AcuPebble home study → CPAP → telemonitoring) — an active commissioning proposal to the West and North London ICB. Available on application (confidential; no public link). |
 | **Post-EMIS Mockup** | Animated walkthrough of a clinically-governed shared record with on-premise AI. |
 | **Ridgeway AI Tools** | RefGP (notes → referral letter) and RateConsult (RCGP-style consultation grading). |
 | **Diagnostic Teammate** | Clinician and AI form independent diagnoses, then reconcile, with patient-friendly summary. |
