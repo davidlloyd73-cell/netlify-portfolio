@@ -21,6 +21,7 @@ Every app links back to the portfolio (top-left pill) when opened from there. If
 | **DL Invoice Generator** | Voice- or text-input invoice creator with PDF export. |
 | **Family Corkboard** | Passcode-protected family board for photos, notes, weekly diary. |
 | **We Take Blood** | Preview of a community phlebotomy service (private, password-gated). |
+| **The Raftery Tapes** | *Data archaeology — open enquiry (Aug 2026), not a shipped app.* Tracing 1970s continuous intra-arterial blood pressure recordings — 24-hour arterial waveforms on magnetic tape, at a resolution nobody could exploit at the time. A written piece (`raftery-tapes.html`); updated when the outstanding answer arrives. |
 
 ## Tools & MCPs
 
