@@ -10,6 +10,7 @@ Every app links back to the portfolio (top-left pill) when opened from there. If
 
 | Project | What it does |
 |---|---|
+| **SleepWell Harrow** | GP-led community sleep apnoea diagnosis *and* treatment pathway (AcuPebble home study → CPAP → telemonitoring) — an active commissioning proposal to the West and North London ICB. Available on application (confidential; no public link). |
 | **Post-EMIS Mockup** | Animated walkthrough of a clinically-governed shared record with on-premise AI. |
 | **Ridgeway AI Tools** | RefGP (notes → referral letter) and RateConsult (RCGP-style consultation grading). |
 | **Diagnostic Teammate** | Clinician and AI form independent diagnoses, then reconcile, with patient-friendly summary. |
@@ -20,12 +21,14 @@ Every app links back to the portfolio (top-left pill) when opened from there. If
 | **DL Invoice Generator** | Voice- or text-input invoice creator with PDF export. |
 | **Family Corkboard** | Passcode-protected family board for photos, notes, weekly diary. |
 | **We Take Blood** | Preview of a community phlebotomy service (private, password-gated). |
+| **The Raftery Tapes** | *Data archaeology — open enquiry (Aug 2026), not a shipped app.* Tracing 1970s continuous intra-arterial blood pressure recordings — 24-hour arterial waveforms on magnetic tape, at a resolution nobody could exploit at the time. A written piece (`raftery-tapes.html`); updated when the outstanding answer arrives. |
 
 ## Tools & MCPs
 
 | Tool | What it does |
 |---|---|
 | **uk-evidence MCP** | A Model Context Protocol server giving Claude live, point-of-care access to UK clinical evidence — NICE guidance and quality standards, NICE CKS summaries, MHRA drug-safety articles, and PubMed. So Claude answers from the current guideline, not its training data. |
+| **Referral Kit** | Fully-local RAG over your own GP referral pathways — ask where to refer, check a draft letter, or run a coverage report, each answer cited to source. Runs on-device (Ollama + ChromaDB); ships an MCP server for Claude Desktop/Cowork plus a NW London pathway watcher. |
 
 ## Adding to the site
 

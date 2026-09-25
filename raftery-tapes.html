@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Raftery Tapes · David Lloyd</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  :root {
+    --bg-0: #07090f;
+    --bg-1: #0d1220;
+    --bg-2: #131a2e;
+    --text: #e8ecf5;
+    --muted: #9aa3b8;
+    --accent-a: #7c5cff;
+    --accent-b: #22d3ee;
+    --accent-c: #f472b6;
+    --card: rgba(255,255,255,0.04);
+    --card-hover: rgba(255,255,255,0.07);
+    --border: rgba(255,255,255,0.09);
+    --border-hover: rgba(255,255,255,0.18);
+  }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--text);
+    background: var(--bg-0);
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(900px 600px at 12% -5%, rgba(124,92,255,0.28), transparent 60%),
+      radial-gradient(800px 600px at 95% 10%, rgba(34,211,238,0.18), transparent 60%),
+      radial-gradient(700px 500px at 50% 110%, rgba(244,114,182,0.16), transparent 60%),
+      linear-gradient(180deg, var(--bg-0), var(--bg-1));
+    z-index: -1;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 28px 120px;
+  }
+  header.hero {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+  .eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: rgba(255,255,255,0.02);
+    margin-bottom: 24px;
+  }
+  h1 {
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin: 0 0 18px;
+    background: linear-gradient(120deg, #ffffff 0%, #c9d1ff 45%, #7c5cff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .lede {
+    color: var(--muted);
+    font-size: clamp(1rem, 1.6vw, 1.15rem);
+    max-width: 620px;
+    margin: 0 auto;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 22px;
+  }
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 0 26px 24px;
+    border-radius: 18px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: transform 0.35s cubic-bezier(.2,.7,.2,1), border-color 0.3s, background 0.3s, box-shadow 0.35s;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+  }
+  .shot {
+    display: block;
+    width: calc(100% + 52px);
+    margin: 0 -26px 22px;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    object-position: top center;
+    background: rgba(255,255,255,0.03);
+    border-bottom: 1px solid var(--border);
+    transform: translateZ(0);
+    transition: opacity 0.3s;
+  }
+  .card:hover .shot { opacity: 0.92; }
+  .card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--g-a, var(--accent-a)) 0%, var(--g-b, var(--accent-b)) 100%);
+    opacity: 0;
+    transition: opacity 0.4s;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+  }
+  .card:hover {
+    transform: translateY(-6px);
+    background: var(--card-hover);
+    border-color: var(--border-hover);
+    box-shadow: 0 24px 60px -20px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04);
+  }
+  .card:hover::before { opacity: 0.14; }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 5px 10px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    align-self: flex-start;
+    margin-bottom: 18px;
+  }
+  .badge .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--g-a), var(--g-b));
+    box-shadow: 0 0 8px var(--g-a);
+  }
+  .card h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin: 0 0 10px;
+    letter-spacing: -0.01em;
+  }
+  .card p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin: 0 0 22px;
+    flex: 1;
+  }
+  .card .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+  }
+  .url {
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-family: 'SF Mono', Menlo, Consolas, monospace;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 200px;
+  }
+  .visit {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text);
+    background: linear-gradient(135deg, var(--g-a), var(--g-b));
+    padding: 8px 14px;
+    border-radius: 999px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    flex-shrink: 0;
+  }
+  .visit svg {
+    width: 14px; height: 14px;
+    transition: transform 0.25s;
+  }
+  .card:hover .visit svg { transform: translate(2px, -2px); }
+  .card:hover .visit {
+    box-shadow: 0 8px 24px -8px var(--g-a);
+  }
+  footer.foot {
+    margin-top: 80px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  footer.foot a { color: var(--text); text-decoration: none; }
+  footer.foot a:hover { text-decoration: underline; }
+  nav.topnav {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 40px;
+    padding: 6px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  nav.topnav a {
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s, background 0.2s;
+  }
+  nav.topnav a:hover { color: var(--text); }
+  nav.topnav a.active {
+    background: linear-gradient(135deg, var(--accent-a), var(--accent-b));
+    color: #fff;
+  }
+
+  @media (max-width: 540px) {
+    .container { padding: 56px 18px 80px; }
+    .grid { gap: 16px; }
+    .card { padding: 0 22px 22px; }
+    .shot { width: calc(100% + 44px); margin: 0 -22px 18px; }
+    .url { max-width: 140px; }
+  }
+
+  /* --- Raftery write-up: prose built from existing tokens, no new fonts/colours --- */
+  .hero-badges { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
+  .hero-badges .badge { align-self: center; margin-bottom: 0; }
+  .article { max-width: 780px; margin: 0 auto; }
+  .article .standfirst {
+    font-size: clamp(1.15rem, 2.2vw, 1.42rem);
+    line-height: 1.5;
+    font-weight: 500;
+    color: var(--text);
+    margin: 0 0 40px;
+  }
+  .article h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    margin: 46px 0 14px;
+  }
+  .article p {
+    color: var(--muted);
+    font-size: 1.02rem;
+    line-height: 1.7;
+    margin: 0 0 18px;
+  }
+  .article ul { color: var(--muted); font-size: 1.02rem; line-height: 1.7; margin: 0 0 18px; padding-left: 1.2em; }
+  .article li { margin: 0 0 10px; }
+  .article strong { color: var(--text); font-weight: 600; }
+  .refs {
+    margin: 44px 0 0;
+    padding: 22px 24px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+  }
+  .refs h2 {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+    margin: 0 0 16px;
+  }
+  .refs ul { list-style: none; padding: 0; margin: 0; }
+  .refs li { font-size: 0.85rem; line-height: 1.55; color: var(--muted); margin: 0 0 12px; }
+  .refs li:last-child { margin-bottom: 0; }
+  .refs .cite { color: var(--text); }
+  .status-note {
+    max-width: 780px;
+    margin: 40px auto 0;
+    padding: 16px 20px;
+    border: 1px dashed var(--border-hover);
+    border-radius: 12px;
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+  .status-note strong { color: var(--text); }
+  .backlink { display:inline-block; margin-bottom: 8px; color: var(--muted); text-decoration: none; font-size: 0.85rem; }
+  .backlink:hover { color: var(--text); }
+</style>
+</head>
+<body>
+  <div class="container">
+    <nav class="topnav">
+      <a href="index.html">Apps</a>
+      <a href="topics.html">Research Topics</a>
+      <a href="tools.html">Tools &amp; MCPs</a>
+    </nav>
+
+    <header class="hero">
+      <span class="eyebrow">Data archaeology</span>
+      <h1>The Raftery Tapes</h1>
+      <div class="hero-badges"><span class="badge"><span class="dot"></span>Open enquiry · August 2026</span></div>
+    </header>
+
+    <article class="article">
+      <p class="standfirst">Somewhere between a hospital basement and a skip: 24-hour intra-arterial blood pressure recordings from the 1970s, captured at a resolution nobody could use at the time.</p>
+
+      <p>Most medical data is thrown away twice. Once when the study ends and the tapes go into a cupboard, and again a decade later when somebody needs the cupboard. What survives, survives by accident.</p>
+
+      <p>In the late 1970s, a cardiology unit at Northwick Park Hospital was doing something that would be almost unthinkable now. Patients with untreated hypertension had a fine catheter placed in the radial artery and went home for twenty-four hours — walking about, sleeping, going to work — while a portable recorder wrote their arterial pressure waveform continuously onto magnetic tape. Not a reading every thirty minutes from a cuff. The actual pressure wave, beat by beat, around the clock.</p>
+
+      <p>The work produced one of the foundational observations in hypertension: that blood pressure follows a circadian rhythm, falling at night and surging on waking. That single finding reorganised how the condition is measured and treated, and it is why nocturnal dipping is a phrase any GP recognises today.</p>
+
+      <p>But the papers that came out of it used the data at the resolution of 1978. Hourly means. Day and night averages. What the analysis could extract, given the computing available, was a thin summary of an extraordinarily rich signal.</p>
+
+      <h2>What is actually on the tape</h2>
+      <p>A continuous arterial waveform is not a blood pressure reading. It carries the shape of every beat, and the shape is informative in ways that were not analysable at the time and in some cases not yet described:</p>
+      <ul>
+        <li>Beat-to-beat variability, and its structure across sleep stages</li>
+        <li>Pulse wave contour — a route to arterial stiffness and central pressure estimation, decades before the devices that now measure it commercially</li>
+        <li>Augmentation index and reflected wave timing</li>
+        <li>Baroreflex sensitivity, derivable from the pressure record itself</li>
+        <li>Morning surge morphology, rather than the crude difference between two means</li>
+      </ul>
+      <p>And these are recordings of untreated hypertensives. That cohort cannot be assembled again. No ethics committee would now approve twenty-four hours of intra-arterial monitoring in an ambulant patient for observational purposes, and no untreated cohort of that size would be allowed to remain untreated long enough to follow up. The population has outcome data attached: the associated Northwick Park cohorts were followed for years, with hard cardiovascular endpoints recorded.</p>
+      <p>An archive of physiological detail that cannot be recreated, attached to outcomes that are already known. If it exists.</p>
+
+      <h2>The problem</h2>
+      <p>Analogue magnetic tape from the 1970s presents three separate failure points, and they compound.</p>
+      <p><strong>Survival.</strong> Research tapes are rarely catalogued as records. They sit in departmental storage until a space review, and space reviews are unsentimental. Physical media held for more than twenty years has routinely been disposed of at Northwick Park, as elsewhere, for storage and archiving cost alone.</p>
+      <p><strong>Playback.</strong> Even intact tape needs the original transport, or a compatible one, and often baking to survive a single pass. The recorders used for ambulatory arterial monitoring were specialist and are now museum pieces. Calibration signals recorded alongside the data are essential and may not be documented anywhere outside the original unit's notebooks.</p>
+      <p><strong>Provenance.</strong> A waveform without a patient identifier, a timestamp and a calibration reference is a pretty picture. The value depends entirely on linkage back to the clinical dataset, which lived on paper and on systems long since decommissioned.</p>
+      <p>Any one of these is enough to end the project. All three have to fail benignly for it to be worth doing.</p>
+
+      <h2>Where this stands</h2>
+      <p>The enquiry is live rather than concluded. The published anchors are solid and locate both the work and the cohorts precisely. Contact has been made with the department's current cardiac research leadership, who described the idea as worth pursuing, were candid that retrieval would be very difficult, and offered to find out whether any physical media survives. That answer is outstanding.</p>
+      <p>The realistic expectation is that nothing remains. Most such enquiries end that way, which is itself the point: the default outcome for irreplaceable physiological data is quiet disposal, and it happens without anyone deciding it should.</p>
+      <p>If something does survive, the recovery problem is genuinely tractable in a way it was not even ten years ago. Digitising an analogue waveform is straightforward once you can play it. Reconstructing beat detection, calibration and artefact rejection from a noisy 1970s signal is exactly the kind of task modern signal processing handles well. The hard part was never the compute. It was, and remains, whether the physical object still exists.</p>
+
+      <section class="refs">
+        <h2>Published anchors</h2>
+        <ul>
+          <li><span class="cite">Millar-Craig MW, Bishop CN, Raftery EB. Circadian variation of blood pressure. Lancet 1978.</span> — The circadian finding.</li>
+          <li><span class="cite">Acharya DU, Heber ME, Doré CJ, Raftery EB. Northwick Park Hospital Database Study. American Journal of Hypertension 1996;9:943–52.</span> — 723 untreated hypertensives, 24-hour intra-arterial recording.</li>
+          <li><span class="cite">Khattar RS, Swales JD, Banfield A, Doré C, Senior R, Lahiri A. Circulation 1999;100:1071–6.</span> — 688 patients, 157 first cardiovascular events, 9.2 years of follow-up.</li>
+        </ul>
+      </section>
+
+      <p class="status-note"><strong>Status:</strong> open enquiry, awaiting confirmation of whether any physical media survives. This page will be updated when there is an answer either way.</p>
+    </article>
+
+    <footer class="foot">
+      <p>Built by David Lloyd with Claude · all sites hosted on <a href="https://netlify.com" target="_blank" rel="noopener">Netlify</a></p>
+    </footer>
+  </div>
+</body>
+</html>
